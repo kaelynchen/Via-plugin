@@ -1,0 +1,43 @@
+// ==UserScript==
+// @name 豆瓣去广告
+// @namespace Violentmonkey Scripts
+// @match https://m.douban.com/*
+// @grant none
+// ==/UserScript==
+
+(function(){
+    document.querySelector('.TalionNav-static').innerHTML = ''
+    let styleText = `
+        .oia-wrap
+        ,.oia
+        ,.opreations
+        ,.read-all
+        ,.hidden-content
+        {
+            display: none !important;
+        }
+        .TalionNav-static{
+            height: 0px !important;
+        }
+        html {
+          padding-bottom: 0px !important;
+        }
+        .download-app
+        ,TalionNav-static
+        {
+          opacity: 0;
+        }
+        .note-content.paper {
+          max-height: none !important;
+        }
+    `
+    document.querySelector('head').innerHTML += '<style>'+styleText+'</style>'
+
+    let showAll = document.querySelector('.show-all>a')
+    showAll.onclick = function() {
+      document.querySelector('.to_pc').click()
+      return false
+    }
+    showAll.innerText = showAll.innerText.replace('· 打开App', '')
+  
+})();
