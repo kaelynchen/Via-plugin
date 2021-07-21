@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name 豆瓣去广告
+// @name 豆瓣
 // @namespace Violentmonkey Scripts
 // @match https://m.douban.com/*
 // @grant none
