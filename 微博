@@ -1,0 +1,16 @@
+// ==UserScript==
+// @name Donald's 微博
+// @namespace Violentmonkey Scripts
+// @match https://m.weibo.cn/*
+// @grant none
+// @version 1.0
+// @author Donald
+// ==/UserScript==
+
+(function(){
+  document.querySelector('style').innerText += `
+    .wrap {
+      display: none !important;
+    }
+  `
+})();
