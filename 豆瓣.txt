@@ -1,12 +1,13 @@
 // ==UserScript==
-// @name 豆瓣
+// @name Donald's 豆瓣
 // @namespace Violentmonkey Scripts
 // @match https://m.douban.com/*
 // @grant none
+// @version 1.0
+// @author Donald
 // ==/UserScript==
 
 (function(){
-    document.querySelector('.TalionNav-static').innerHTML = ''
     let styleText = `
         .oia-wrap
         ,.oia
@@ -23,7 +24,7 @@
           padding-bottom: 0px !important;
         }
         .download-app
-        ,TalionNav-static
+        ,.TalionNav-static
         {
           opacity: 0;
         }
