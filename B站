@@ -1,0 +1,50 @@
+// ==UserScript==
+// @name Donald's 哔哩哔哩
+// @namespace Violentmonkey Scripts
+// @match https://m.bilibili.com/*
+// @grant none
+// @version 1.0
+// @author Donald
+// ==/UserScript==
+
+(function(){
+
+    // 首页、排行榜 新窗口打开
+    document.addEventListener('readystatechange', function(){
+        clear()
+    })
+      
+    function clear() {
+        console.log('clear.............')
+        document.querySelectorAll('.v-card').forEach(function(item){
+            item.target = '_blank'
+        })
+        document.querySelectorAll('.v-card-single').forEach(function(item){
+            item.target = '_blank'
+        })
+    }
+
+    window.document.onscroll = function() {
+        console.log('onscroll..........')
+        let t1 = 0, t2 = 0, timer
+        t1 = window.document.documentElement.scrollTop
+        timer = setTimeout(function(){
+            t2 = window.document.documentElement.scrollTop
+            // 停止滚动
+            if (t1 == t2) {
+                clear()
+            }
+        }, 100)
+    }
+
+    let origOpen = XMLHttpRequest.prototype.open;
+    XMLHttpRequest.prototype.open = function() {
+        console.log('XHREvent........')
+        this.addEventListener('load', function() {
+            clear()
+            // console.log(this.readyState); //will always be 4 (ajax is completed successfully)
+            // console.log(this.responseText); //whatever the response was
+        })
+        origOpen.apply(this, arguments)
+    }
+})();
