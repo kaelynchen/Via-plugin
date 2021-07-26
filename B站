@@ -3,25 +3,11 @@
 // @namespace Violentmonkey Scripts
 // @match https://*.bilibili.com/*
 // @grant none
-// @version 1.2
+// @version 1.3
 // @author Donald
 // ==/UserScript==
 
 (function(){
-    // PC版网页缩放
-    let hostname = window.location.hostname
-    let pcPageList = [
-      'space.bilibili.com',
-      't.bilibili.com'
-    ]
-    pcPageList.forEach(function(item){
-      if (hostname.match(item)) {
-        let meta = document.createElement('meta')
-        meta.name = 'viewport'
-        meta.content = 'width=device-width; initial-scale=1.0'
-        document.head.appendChild(meta)
-      }
-    })
   
     // 根据页面选择样式
     let pathname = window.location.pathname
@@ -35,8 +21,17 @@
       }
     })
     
-    // 播放页优化
+  
+  
+    // 播放页，弹幕优化
     let style = `
+        .player-mobile-danmaku-container {
+          height: 5em !important;
+        }
+        .bilibili-danmaku {
+          font-size: 13px !important;
+          font-weight: normal !important;
+        }
         .m-navbar {
             position: fixed;
             width: 100%;
@@ -63,13 +58,39 @@
     `
     document.querySelector('style').innerText += style
   
-    // 首页、排行榜 新窗口打开
+  
+    
     document.addEventListener('readystatechange', function(){
+      if (document.readyState == 'complete') {
         clear()
+        
+        setTimeout(function(){
+          console.log('自动播放.......')
+          document.querySelector('.player-mobile-load-layer').click()
+        }, 0)
+        
+        setTimeout(function(){
+          console.log('自动跳到上次播放位置...........')
+          let record = document.querySelector('.player-mobile-playtime-record')
+          let mutationConfig = {attributes: true, childList: false, subtree: false}
+          let observer = new MutationObserver(function(mutationList, observer){
+            if (record.style.opacity == '') {
+              console.log('record jump..........')
+              document.querySelector('.player-mobile-playtime-record-jump').click()
+              observer.disconnect()
+            }
+          })
+          observer.observe(record, mutationConfig)
+        }, 0)
+        
+      }
     })
 
+    
+
+    // 首页、排行榜 新窗口打开
     function clear() {
-        console.log('clear.............')
+        console.log('新窗口打开.............')
         document.querySelectorAll('.v-card').forEach(function(item){
             item.target = '_blank'
         })
@@ -77,9 +98,7 @@
             item.target = '_blank'
         })
     }
-
     window.document.onscroll = function() {
-        console.log('onscroll..........')
         let t1 = 0, t2 = 0, timer
         t1 = window.document.documentElement.scrollTop
         timer = setTimeout(function(){
@@ -90,17 +109,32 @@
             }
         }, 100)
     }
-
     let origOpen = XMLHttpRequest.prototype.open;
     XMLHttpRequest.prototype.open = function() {
-        console.log('XHREvent........')
         this.addEventListener('load', function() {
             clear()
-            // console.log(this.readyState); //will always be 4 (ajax is completed successfully)
-            // console.log(this.responseText); //whatever the response was
         })
         origOpen.apply(this, arguments)
     }
   
-})();
   
+    
+    // PC版网页缩放
+    let hostname = window.location.hostname
+    let pcPageList = [
+      'space.bilibili.com',
+      't.bilibili.com'
+    ]
+    pcPageList.forEach(function(item){
+      if (hostname.match(item)) {
+        let meta = document.createElement('meta')
+        meta.name = 'viewport'
+        meta.content = 'width=device-width; initial-scale=1.0'
+        document.head.appendChild(meta)
+      }
+    })
+  
+  
+  
+  
+})();
