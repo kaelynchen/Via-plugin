@@ -55,7 +55,7 @@ scriptList.forEach(item=>{
         <a 
             id="addon-`+item.id+`" 
             data-id="`+item.id+`"
-            data-name="`+item.name+`"
+            data-name="Donald's `+item.name+`"
             data-author="Donald.Lin"
             data-url="`+item.url+`"
             onclick="operate('`+item.name+`', this)" 
