@@ -8,26 +8,19 @@
 
 (function(){
 
-    /*
-        document.querySelector('head').innerText += `
-        <style>
-            #cwrap+div
-            ,.go-app
-            ,.copy_right
-            {
-                  display: none !important;
-            }
-        </style>
-    `
-    */
-    document.querySelector('#cwrap+div').style.display = 'none'
-    
-    document.querySelector('.go-app').style.display = 'none'
-
-    document.querySelector('.copy_right').style.display = 'none'
-
     document.querySelectorAll('.author').onclick = function(){
         return false
     }
+
+    let style = document.createElement('style')
+    style.innerHTML = `
+        #cwrap+div
+        ,.go-app
+        ,.copy_right
+        {
+            display: none !important;
+        }
+    `
+    document.head.appendChild(style)
     
 })();

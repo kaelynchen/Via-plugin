@@ -17,22 +17,22 @@ let scriptList = [
         url: 'm.jd.com',
      }, {
         name: '拼多多',
-        id: 102,
+        id: 103,
         status: 0,
         url: 'yangkeduo.com, pinduoduo.com'
      }, {
         name: '手机网页调试',
-        id: 102,
+        id: 104,
         status: 0,
         url: '*',
     }, {
         name: '微博',
-        id: 103,
+        id: 105,
         status: 0,
         url: 'm.weibo.cn',
     }, {
         name: '小鱼网',
-        id: 104,
+        id: 106,
         status: 0,
         url: 'bbs.xmfish.com',
     },
