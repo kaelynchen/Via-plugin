@@ -38,15 +38,13 @@ let scriptList = [
     }
 ]
 scriptList.forEach(item=>{
-    try {
+    if (window.via !== undefined) {
         let installedAddonId = JSON.parse(window.via.getInstalledAddonID())
         for (id of installedAddonId) {
             if (id == item.id) {
                 item.status = 1
             }
         }
-    } catch {
-        console.log('get installed plugins error')
     }
     let div = document.createElement('div')
     div.setAttribute('class', 'item')
@@ -68,7 +66,9 @@ scriptList.forEach(item=>{
 
 function operate(fileName, t) {
     if (!window.via) {
-        alert('您的浏览器暂不支持安装插件')
+        if (confirm('您的浏览器暂不支持一键安装, 是否前往下载插件？')) {
+            location.href = 'https://github.com/kaelynchen/Via-plugin'
+        }
         return false
     }
     fetch('./script/'+fileName+'.js').then(res=>{
