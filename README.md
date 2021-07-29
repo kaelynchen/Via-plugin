@@ -1,9 +1,9 @@
-# PurifyH5
-H5页面净化
+[Via 轻插件](https://viayoo.com/zh-cn/)
+======
 
-一个普通的web仔，厌恶了国内APP的臃肿和吃相 -_-
-如今，越开发越难用的技术,或许就是H5了
-逼迫你下载各种APP，明明很多用户需求用H5来实现已经很方便了，比如知乎
-所以整理了平时自己对一些网站H5页面的优化！
-VIA插件网 via-app.cn 上面已经有很多例子，不重复造轮子，
-所以这里只是做一个补充~
+`Via 轻插件`介绍
+
+相关报道
+------
+- 【知乎】[PC端Web胜利了，移动端为什么Web没能取代大量的APP？](https://www.zhihu.com/question/424738646)
+- 【差评】[我真的真的，不想再下APP了啊！！！](https://www.bilibili.com/video/BV1gk4y1B7m7)
