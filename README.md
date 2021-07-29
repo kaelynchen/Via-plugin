@@ -15,7 +15,7 @@
 
 ### 调试插件
 手机端调试可以使用 [vConsole](/script/手机网页调试.js)
-[vConsole官方地址](https://github.com/Tencent/vConsole)
+[官方地址](https://github.com/Tencent/vConsole)
 
 相关报道
 ------
