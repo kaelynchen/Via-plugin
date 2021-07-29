@@ -10,9 +10,12 @@
 ### 其他浏览器可以使用吗
 可以，请到 [插件列表](/script) 自行下载，添加到浏览器
 
-### Via 浏览器如何加载插件
-当页面加载完成，即 dcoument.readyState 的值为 complete 时，浏览器向网页注入相应的脚本
+### 插件加载原理
+当页面加载完成，即 dcoument.readyState 的值为 complete 时，Via 浏览器向网页注入相应的脚本
 
+### 调试插件
+手机端调试可以使用 [vConsole](/script/手机网页调试.js)
+[vConsole官方地址](https://github.com/Tencent/vConsole)
 
 相关报道
 ------
