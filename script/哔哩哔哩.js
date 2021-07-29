@@ -54,33 +54,36 @@
     document.querySelector('style').innerText += style
 
 
-    document.addEventListener('readystatechange', function(){
-        if (document.readyState == 'complete') {
-            clear()
-            
-            setTimeout(function(){
-                console.log('自动播放.......')
-                document.querySelector('.player-mobile-load-layer').click()
-            }, 0)
-            
-            setTimeout(function(){
-                console.log('自动跳到上次播放位置...........')
-                let record = document.querySelector('.player-mobile-playtime-record')
-                let mutationConfig = {attributes: true, childList: false, subtree: false}
-                let observer = new MutationObserver(function(mutationList, observer){
-                if (record.style.opacity == '') {
-                    console.log('record jump..........')
-                    document.querySelector('.player-mobile-playtime-record-jump').click()
-                    observer.disconnect()
-                }
-                })
-                observer.observe(record, mutationConfig)
-            }, 0)
-            
+
+    window.onload = function() {
+        clear()
+
+        // Via禁止自动播放
+        // setTimeout(function(){
+        //     console.log('自动播放.......')
+        //     document.querySelector('.player-mobile-load-layer').click()
+
+        //     let ee = document.createEvent('MouseEvents')
+        //     ee.initMouseEvent('touchend', true, true, document.defaultView)
+        //     document.querySelector('.player-mobile-load-layer').dispatchEvent(ee)
+
+        //     window.player.play()
+        // }, 0)
+        
+        let record = document.querySelector('.player-mobile-playtime-record')
+        let mutationConfig = {attributes: true, childList: false, subtree: false}
+        let observer = new MutationObserver(function(mutationList, observer){
+        if (record.style.opacity == '') {
+            console.log('自动跳到上次播放位置...........')
+            document.querySelector('.player-mobile-playtime-record-jump').click()
+            observer.disconnect()
         }
-    })
-  
-      
+        })
+        observer.observe(record, mutationConfig)
+    }
+
+
+    
   
     // 首页、排行榜 新窗口打开
     function clear() {

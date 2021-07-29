@@ -35,7 +35,7 @@ let scriptList = [
         id: 106,
         status: 0,
         url: 'bbs.xmfish.com',
-    },
+    }
 ]
 scriptList.forEach(item=>{
     try {
