@@ -1,9 +1,30 @@
-# PurifyH5
-H5页面净化
+[Via 轻插件](https://viayoo.com/zh-cn/)
+======
 
-一个普通的web仔，厌恶了国内APP的臃肿和吃相 -_-
-如今，越开发越难用的技术,或许就是H5了
-逼迫你下载各种APP，明明很多用户需求用H5来实现已经很方便了，比如知乎
-所以整理了平时自己对一些网站H5页面的优化！
-VIA插件网 via-app.cn 上面已经有很多例子，不重复造轮子，
-所以这里只是做一个补充~
+`Via 轻插件`是专门为 Via 浏览器定制的 JavaScript 插件
+
+### Via 轻插件能做什么
+可以干掉广告，美化网页，让浏览体验更佳。
+最关键是，你不用为了仅仅使用一小部分的功能，而下载 1 到 2 个 G 的 APP
+
+### 其他浏览器可以使用吗
+可以，请到 [插件列表](/script) 自行下载，添加到浏览器
+
+### 插件加载原理
+当页面加载完成，即 dcoument.readyState 的值为 complete 时，Via 浏览器向网页注入相应的脚本
+
+### 调试插件
+手机端调试可以使用 [vConsole](/script/手机网页调试.js)
+[官方地址](https://github.com/Tencent/vConsole)
+
+相关报道
+------
+- 【知乎】[PC端Web胜利了，移动端为什么Web没能取代大量的APP？](https://www.zhihu.com/question/424738646)
+- 【差评】[我真的真的，不想再下APP了啊！！！](https://www.bilibili.com/video/BV1gk4y1B7m7)
+- 【epcdiy】[我的内存去哪了？上帝视角看这些国产APP是如何吃内存的](https://www.bilibili.com/video/BV1FK4y1f7vm)
+
+
+其他信息
+------
+- Via 浏览器版本: 4.3.0(20210627)
+- WebView 版本: 80.0.3987.99(398709930)
